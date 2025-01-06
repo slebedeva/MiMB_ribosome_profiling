@@ -1,0 +1,12 @@
+Bootstrap: docker
+From: rocker/rstudio:4.4.2
+
+%post
+    # Update package lists and install system dependencies
+    apt-get -y update && \
+    apt-get -y install --no-install-recommends \
+    make libicu-dev pandoc && \
+    rm -rf /var/lib/apt/lists/* # clean up cache to reduce image size
+
+    # Install R packages using Rscript
+    Rscript -e "install.packages(c('renv', 'doParallel', 'foreach'))"
