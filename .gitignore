@@ -4,3 +4,7 @@
 .Ruserdata
 *.Rproj
 README.html
+renv
+example_output*
+example_data/sequencing_data/rpf.fastq
+notes.md
